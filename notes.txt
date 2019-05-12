@@ -1,0 +1,16 @@
+brew install coreutils
+
+cd ~/
+git clone https://github.com/shawwn/node-ios-artifacts
+cd node-ios-artifacts
+tar xvf deps_icu.tar.gz
+cd deps/icu/source
+sudo make install
+
+cd ~/
+git clone https://github.com/shawwn/node node-ios-release -b ios-release
+cd ios-release
+tar xvf ../node-ios-artifacts/deps_icu.tar.gz
+sh build-ios.sh
+# run again after command fails once
+sh build-ios.sh
